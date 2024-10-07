@@ -1,0 +1,89 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 385px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #FFFFFF;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+
+    h2 {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        cursor: pointer;
+      }
+    }
+
+    .items {
+      flex: 1;
+      overflow: auto;
+
+      .cartItem {
+        margin-top: 20px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #f3f3f3;
+        border-radius: 20px;
+
+        .imgItem {
+          width: 70px;
+          height: 70px;
+          margin-right: 15px;
+        }
+
+        .descItem {
+          font-size: 14px;
+          margin-right:15px;
+        }
+
+        .priceItem {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .cartTotalBlock {
+    li {
+      display: flex;
+
+      div {
+        flex: 1;
+        border-bottom: 1px dashed #dfdfdf;
+        margin: 0 10px;
+      }
+    }
+
+    &:hover {
+      img {
+        transform: translateX(5px);
+      }
+    }
+
+    .greenBtn {
+      position: relative;
+
+      img {
+        position: absolute;
+        right: 30px;
+        top: 20px;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+  }
+}
