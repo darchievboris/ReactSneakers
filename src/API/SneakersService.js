@@ -6,4 +6,16 @@ export class SneakersService{
         const response = await axios.get(this.baseUrl+'sneakerItems')
         return response.data
     }
+    static async getAllInCart(){
+        const response = await axios.get(this.baseUrl+'sneakerItemsCart')
+        return response.data
+    }
+    static async addItemToCart(item){
+        const response = await axios.post(this.baseUrl+'sneakerItemsCart',{...item})
+        return response
+    }
+    static async deleteItemFromCart(id){
+        const response = await axios.delete(this.baseUrl+'sneakerItemsCart',id)
+        return response
+    }
 }

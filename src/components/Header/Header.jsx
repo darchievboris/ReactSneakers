@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import cl from './Header.module.scss'
 import {Link} from "react-router-dom";
+import {AppContext} from "../../context/CartContext";
+import App from "../../App";
+import {countTotalPriceFromArray} from "../../Utile/formatNumberToPrice";
 
 const Header = ({}) => {
+    const {setToggleDrawer,cartItems}=useContext(AppContext)
+    const [totalPrice]= countTotalPriceFromArray(cartItems)
     return (
         <header>
             <div className={cl.headerLeft}>
@@ -14,12 +19,14 @@ const Header = ({}) => {
                     </div>
                 </Link>
             </div>
-            <ul className={cl.headerRight}>
 
-                <li>
-                    <img src="./img/cart.svg" alt="cart"/>
-                    <span>1200 руб.</span>
-                </li>
+            <ul className={cl.headerRight}>
+                <Link onClick={()=>setToggleDrawer(prevState=>!prevState)}>
+                    <li>
+                        <img src="./img/cart.svg" alt="cart"/>
+                        <span>{totalPrice}</span>
+                    </li>
+                </Link>
 
                 <Link to="favorites">
                     <li>

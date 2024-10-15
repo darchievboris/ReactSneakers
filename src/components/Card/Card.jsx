@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import cl from './Card.module.scss'
+import {AppContext} from "../../context/CartContext";
 
-const Card = ({item, addToCart}) => {
+const Card = ({item}) => {
     const [toggleToAdd, setToggleToAdd] = useState(false);
+    const {addItemToCart} = useContext(AppContext);
     const onClickAddBtn = () => {
-        addToCart(item.id)
+        addItemToCart(item)
         setToggleToAdd(!toggleToAdd)
 
     }

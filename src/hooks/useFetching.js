@@ -4,10 +4,10 @@ export const useFetching = (cb) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const fetching = () => {
+    const fetching = async () => {
         try {
             setLoading(true)
-            cb()
+            await cb()
         } catch (e) {
             setError(e.massage)
         } finally {
