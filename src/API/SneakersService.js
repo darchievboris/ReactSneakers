@@ -6,7 +6,7 @@ export class SneakersService{
         const response = await axios.get(this.baseUrl+'sneakerItems')
         return response.data
     }
-    static async getAllInCart(){
+    static async getAllFromCart(){
         const response = await axios.get(this.baseUrl+'sneakerItemsCart')
         return response.data
     }
@@ -15,7 +15,7 @@ export class SneakersService{
         return response
     }
     static async deleteItemFromCart(id){
-        const response = await axios.delete(this.baseUrl+'sneakerItemsCart',id)
+        const response = await axios.delete(this.baseUrl+'sneakerItemsCart/'+id)
         return response
     }
 }

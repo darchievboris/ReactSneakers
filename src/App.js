@@ -7,10 +7,11 @@ import {SneakersService} from "./API/SneakersService";
 function App() {
     const [toggleDrawer, setToggleDrawer] = useState(false);
 
+    //Cart
     const [cartItems, setCartItems] = useState([]);
 
     const [fetchingAllItemsFromCart, loading, error] = useFetching(async () => {
-        const response = await SneakersService.getAllInCart()
+        const response = await SneakersService.getAllFromCart()
         setCartItems(response)
     })
 
@@ -18,14 +19,14 @@ function App() {
         fetchingAllItemsFromCart()
     }, []);
 
-    useFetching(async ()=>{
-        const response = await SneakersService
-    })
-    function deleteItemFromCart(itemId) {
-        setCartItems(cartItems.filter(item => item.itemId !== itemId))
+    async function deleteItemFromCart(id) {
+        setCartItems(cartItems.filter(item => item.id !== id))
+        await SneakersService.deleteItemFromCart(id)
     }
-    function addItemToCart(item){
+
+    async function addItemToCart(item){
         SneakersService.addItemToCart(item)
+
     }
 
     return (

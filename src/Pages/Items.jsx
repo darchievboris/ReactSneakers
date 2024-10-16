@@ -1,10 +1,9 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Cards from "../components/Card/Cards";
 import {useFetching} from "../hooks/useFetching";
 import {SneakersService} from "../API/SneakersService";
-import App from "../App";
 import {AppContext} from "../context/CartContext";
-import MyInput from "../components/UI/Input/MyInput";
+import Search from "../components/Search/Search";
 
 const Items = ({}) => {
     const [items, setItems] = useState([]);
@@ -27,19 +26,11 @@ const Items = ({}) => {
         }
     }
 
-
     return (
         <>
             <div className="title">
                 <h1>Все кроссовки</h1>
-                <MyInput className="searchBlock" placeholder="Поиск...">
-                    <img src="/img/search.svg" alt="Search"/>
-                </MyInput>
-
-                {/*<div className="searchBlock">*/}
-                {/*    <img src="/img/search.svg" alt="Search"/>*/}
-                {/*    <input placeholder="Поиск..."/>*/}
-                {/*</div>*/}
+                <Search/>
             </div>
 
             <Cards items={items}/>
