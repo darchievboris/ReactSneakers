@@ -1,15 +1,26 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import cl from './Card.module.scss'
 import {AppContext} from "../../context/CartContext";
 
 const Card = ({item}) => {
     const [toggleToAdd, setToggleToAdd] = useState(false);
-    const {addItemToCart} = useContext(AppContext);
+    const {addItemToCart, cartItems, deleteItemFromCart} = useContext(AppContext);
     const onClickAddBtn = () => {
-        addItemToCart(item)
-        setToggleToAdd(!toggleToAdd)
+        if (toggleToAdd) {
+            const indexItemFromCart = cartItems.findIndex(cartItem => cartItem.itemId === item.itemId)
+            const idItemFromCart = cartItems[indexItemFromCart].id
+            deleteItemFromCart(idItemFromCart)
+            setToggleToAdd(false)
+        } else {
+            addItemToCart(item)
+            setToggleToAdd(true)
+        }
 
     }
+    useEffect(() => {
+        if (cartItems.some(cartItem => cartItem.itemId === item.itemId)) setToggleToAdd(true)
+    }, []);
+
 
     return (
         <div className={cl.card}>

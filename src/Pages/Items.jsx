@@ -6,16 +6,7 @@ import {AppContext} from "../context/CartContext";
 import Search from "../components/Search/Search";
 
 const Items = ({}) => {
-    const [items, setItems] = useState([]);
-    const [fetching, loading, error] = useFetching(async () => {
-        const response = await SneakersService.getAll()
-        setItems(response)
-    })
-    useEffect(() => {
-        fetching()
-    }, []);
-
-    const {cartItems, setCartItems} = useContext(AppContext)
+    const {items,cartItems, setCartItems} = useContext(AppContext)
     const addToCart = (id) => {
         const cartItem = cartItems.findIndex(item => item.id === id)
         if (cartItem === -1) {

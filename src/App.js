@@ -9,31 +9,35 @@ function App() {
 
     //Cart
     const [cartItems, setCartItems] = useState([]);
+    const [items, setItems] = useState([]);
 
-    const [fetchingAllItemsFromCart, loading, error] = useFetching(async () => {
-        const response = await SneakersService.getAllFromCart()
-        setCartItems(response)
+    const [fetchingAllData, loading, error] = useFetching(async () => {
+        const responseCart = await SneakersService.getAllFromCart()
+        setCartItems(responseCart)
+        const responseItems = await SneakersService.getAll()
+        setItems(responseItems)
     })
 
     useEffect(() => {
-        fetchingAllItemsFromCart()
+        fetchingAllData()
     }, []);
 
     async function deleteItemFromCart(id) {
-        setCartItems(cartItems.filter(item => item.id !== id))
         await SneakersService.deleteItemFromCart(id)
+        setCartItems(cartItems.filter(item => item.id !== id))
     }
 
     async function addItemToCart(item){
+        setCartItems([...cartItems,item])
         SneakersService.addItemToCart(item)
-
     }
 
     return (
         <AppContext.Provider value={{
+            items,
+            cartItems,
             toggleDrawer,
             setToggleDrawer,
-            cartItems,
             deleteItemFromCart,
             addItemToCart
         }}>
