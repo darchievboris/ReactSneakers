@@ -18,8 +18,12 @@ const Card = ({item}) => {
 
     }
     useEffect(() => {
-        if (cartItems.some(cartItem => cartItem.itemId === item.itemId)) setToggleToAdd(true)
-    }, []);
+        if (cartItems.some(cartItem => cartItem.itemId === item.itemId)) {
+            setToggleToAdd(true)
+        } else {
+            setToggleToAdd(false)
+        }
+    }, [cartItems]);
 
 
     return (

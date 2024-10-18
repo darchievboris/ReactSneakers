@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export class SneakersService{
+export class Api {
     static baseUrl='http://localhost:3001/'
     static async getAll(){
         const response = await axios.get(this.baseUrl+'items')
@@ -8,7 +8,6 @@ export class SneakersService{
     }
     static async getAllFromCart(){
         const response = await axios.get(this.baseUrl+'carts')
-        console.log(response.data)
         return response.data
     }
     static async addItemToCart(item){

@@ -2,19 +2,18 @@ import AppRoutes from "./RouterDom/AppRoutes";
 import {AppContext} from "./context/CartContext";
 import {useEffect, useState} from "react";
 import {useFetching} from "./hooks/useFetching";
-import {SneakersService} from "./API/SneakersService";
+import {Api} from "./Utile/api";
 
 function App() {
     const [toggleDrawer, setToggleDrawer] = useState(false);
 
-    //Cart
-    const [cartItems, setCartItems] = useState([]);
     const [items, setItems] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
     const [fetchingAllData, loading, error] = useFetching(async () => {
-        const responseCart = await SneakersService.getAllFromCart()
+        const responseCart = await Api.getAllFromCart()
         setCartItems(responseCart)
-        const responseItems = await SneakersService.getAll()
+        const responseItems = await Api.getAll()
         setItems(responseItems)
     })
 
@@ -23,13 +22,13 @@ function App() {
     }, []);
 
     async function deleteItemFromCart(id) {
-        await SneakersService.deleteItemFromCart(id)
+        await Api.deleteItemFromCart(id)
         setCartItems(cartItems.filter(item => item.id !== id))
     }
 
     async function addItemToCart(item){
+        await Api.addItemToCart(item)
         setCartItems([...cartItems,item])
-        SneakersService.addItemToCart(item)
     }
 
     return (
