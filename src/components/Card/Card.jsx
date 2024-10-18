@@ -1,10 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react';
 import cl from './Card.module.scss'
 import {AppContext} from "../../context/CartContext";
+import MyButton from "../UI/Button/MyButton";
 
 const Card = ({item}) => {
+    const {
+        cartItems,
+        addItemToCart,
+        deleteItemFromCart,
+
+        favorites,
+        addFavorite,
+        deleteFavorite
+    } = useContext(AppContext);
+
+    //toggleToAdd
     const [toggleToAdd, setToggleToAdd] = useState(false);
-    const {addItemToCart, cartItems, deleteItemFromCart} = useContext(AppContext);
     const onClickAddBtn = () => {
         if (toggleToAdd) {
             const indexItemFromCart = cartItems.findIndex(cartItem => cartItem.itemId === item.itemId)
@@ -15,8 +26,8 @@ const Card = ({item}) => {
             addItemToCart(item)
             setToggleToAdd(true)
         }
-
     }
+
     useEffect(() => {
         if (cartItems.some(cartItem => cartItem.itemId === item.itemId)) {
             setToggleToAdd(true)
@@ -25,22 +36,47 @@ const Card = ({item}) => {
         }
     }, [cartItems]);
 
+    //favorite
+    const [toggleFavorite, setToggleFavorite] = useState(false);
+    useEffect(() => {
+        if (favorites.some(favorite => favorite.itemId === item.itemId)) {
+            setToggleFavorite(true)
+        } else {
+            setToggleFavorite(false)
+        }
+    }, [favorites]);
+    const onFavorite = () => {
+        if (toggleFavorite) {
+            const indexFavorites= favorites.findIndex(favorite => favorite.itemId === item.itemId)
+            const idFavorites = favorites[indexFavorites].id
+            deleteFavorite(idFavorites)
+            setToggleFavorite(false)
+        } else {
+            addFavorite(item)
+            setToggleFavorite(true)
+        }
+    }
 
     return (
         <div className={cl.card}>
-            <img className={cl.favorit} src="/img/heartLiked.svg" alt="liked"/>
-            <img src={item.imageUrl} alt="sneakers"/>
+            <MyButton type="heart" onClick={onFavorite}>
+                {toggleFavorite
+                    ? <img src="./img/heartLiked.svg" alt="liked"/>
+                    : <img src="./img/heart.png" alt="to like"/>}
+            </MyButton>
+
+            <img src={item.imageUrl} className={cl.itemImg} alt="sneakers"/>
             <h5>{item.title}</h5>
             <div className={cl.cardBottom}>
                 <div className={cl.cardPrice}>
                     <span>Цена:</span>
                     <b>{item.price} руб.</b>
                 </div>
-                <button className={cl.button} onClick={onClickAddBtn}>
+                <MyButton type="add" onClick={onClickAddBtn}>
                     {toggleToAdd
                         ? <img src="./img/greenCheck.svg" alt="check"/>
                         : <img src="./img/plus.svg" alt="plus"/>}
-                </button>
+                </MyButton>
             </div>
         </div>
     );

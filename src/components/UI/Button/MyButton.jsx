@@ -7,11 +7,17 @@ const MyButton = ({children, type, className = "", ...props}) => {
         case 'remove':
             classes = cl.remove
             break;
+        case 'heart':
+            classes = cl.heart
+            break;
+        case 'add':
+            classes = cl.add
+            break;
         default:
             classes = cl.green
             break;
     }
-    classes = [classes, className].join(" ")
+    classes = [ cl.common, classes, className,].join(" ")
 
     return (
         <button className={classes} {...props}>

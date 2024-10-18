@@ -9,12 +9,18 @@ function App() {
 
     const [items, setItems] = useState([]);
     const [cartItems, setCartItems] = useState([]);
+    const [favorites, setFavorites] = useState([])
+    const [orders, setOrders] = useState([])
 
     const [fetchingAllData, loading, error] = useFetching(async () => {
         const responseCart = await Api.getAllFromCart()
         setCartItems(responseCart)
-        const responseItems = await Api.getAll()
+        const responseItems = await Api.getAllItems()
         setItems(responseItems)
+        const responseFavorites = await Api.getAllFavorites()
+        setFavorites(responseFavorites)
+        const responseOrders = await Api.getAllFavorites()
+        setOrders(responseOrders)
     })
 
     useEffect(() => {
@@ -31,6 +37,14 @@ function App() {
         setCartItems([...cartItems,item])
     }
 
+   async function addFavorite(item){
+        await Api.addItemToFavorites(item)
+        setFavorites([...favorites,item])
+    }
+   async function deleteFavorite(id){
+       await Api.deleteItemFromFavorites(id)
+       setFavorites(favorites.filter(favorite => favorite.id !== id))
+    }
     return (
         <AppContext.Provider value={{
             items,
@@ -38,7 +52,10 @@ function App() {
             toggleDrawer,
             setToggleDrawer,
             deleteItemFromCart,
-            addItemToCart
+            addItemToCart,
+            favorites,
+            addFavorite,
+            deleteFavorite,
         }}>
             <AppRoutes/>
         </AppContext.Provider>

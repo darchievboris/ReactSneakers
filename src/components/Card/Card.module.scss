@@ -15,15 +15,7 @@
     transform: translateY(-5px)
   }
 
-  .favorit {
-    position: absolute;
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-
-  }
-
-  img {
+  .itemImg {
     width: 133px;
     height: 112px;
   }
@@ -54,16 +46,6 @@
 
       b {
         font-size: 13px
-      }
-    }
-
-    .button {
-      background: #FFFFFF;
-      border: none;
-      cursor: pointer;
-      img {
-        width: 32px;
-        height: 32px;
       }
     }
   }

@@ -30,7 +30,7 @@ const Header = ({}) => {
 
                 <Link to="favorites">
                     <li>
-                        <img src="./img/hard.png" alt="favorites"/>
+                        <img src="./img/heart.png" alt="favorites"/>
                         <span>Закладки</span>
                     </li>
                 </Link>
