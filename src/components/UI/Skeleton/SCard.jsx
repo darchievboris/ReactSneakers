@@ -1,15 +1,16 @@
 import React from 'react';
 import ContentLoader from "react-content-loader"
-
-const SkeletonCard = ({props}) => {
+import cl from "./SCard.module.scss"
+const SCard = ({props}) => {
     return (
         <ContentLoader
-            speed={2}
+            speed={1}
             width={220}
-            height={460}
-            viewBox="0 0 220 460"
+            height={260}
+            viewBox="0 0 158 206"
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
+            className={cl.skeleton}
             {...props}
         >
             <circle cx="144" cy="193" r="15"/>
@@ -22,4 +23,4 @@ const SkeletonCard = ({props}) => {
 
     )
 };
-export default SkeletonCard;
+export default SCard;

@@ -56,6 +56,7 @@ function App() {
             favorites,
             addFavorite,
             deleteFavorite,
+            loading
         }}>
             <AppRoutes/>
         </AppContext.Provider>

@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import cl from './Header.module.scss'
 import {Link} from "react-router-dom";
 import {AppContext} from "../../context/CartContext";
-import App from "../../App";
 import {countTotalPriceFromArray} from "../../Utile/formatNumberToPrice";
 
 const Header = ({}) => {

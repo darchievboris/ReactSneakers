@@ -10,7 +10,6 @@ const Favorites = ({}) => {
         <>
             <div className="title">
                 <h1>Мои закладки</h1>
-                <Search/>
             </div>
 
             <Cards items={favorites}/>

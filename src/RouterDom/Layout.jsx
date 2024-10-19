@@ -5,10 +5,9 @@ import Drawer from "../components/Drawer/Drawer";
 
 const layout = ({}) => {
     return (<>
-            <Drawer/>
-
             <div className="wrapper">
                 <Header/>
+                <Drawer/>
                 <div className="content">
                     <Outlet/>
                 </div>

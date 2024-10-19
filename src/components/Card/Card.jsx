@@ -11,7 +11,7 @@ const Card = ({item}) => {
 
         favorites,
         addFavorite,
-        deleteFavorite
+        deleteFavorite,
     } = useContext(AppContext);
 
     //toggleToAdd
@@ -47,7 +47,7 @@ const Card = ({item}) => {
     }, [favorites]);
     const onFavorite = () => {
         if (toggleFavorite) {
-            const indexFavorites= favorites.findIndex(favorite => favorite.itemId === item.itemId)
+            const indexFavorites = favorites.findIndex(favorite => favorite.itemId === item.itemId)
             const idFavorites = favorites[indexFavorites].id
             deleteFavorite(idFavorites)
             setToggleFavorite(false)
@@ -56,7 +56,6 @@ const Card = ({item}) => {
             setToggleFavorite(true)
         }
     }
-
     return (
         <div className={cl.card}>
             <MyButton type="heart" onClick={onFavorite}>

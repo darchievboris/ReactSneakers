@@ -6,8 +6,7 @@ import {AppContext} from "../context/CartContext";
 import Search from "../components/Search/Search";
 
 const Items = ({}) => {
-    const {items} = useContext(AppContext)
-
+    const {items,loading} = useContext(AppContext)
     return (
         <>
             <div className="title">
@@ -15,7 +14,7 @@ const Items = ({}) => {
                 <Search/>
             </div>
 
-            <Cards items={items}/>
+            <Cards items={items} loading={loading}/>
 
         </>
     );
