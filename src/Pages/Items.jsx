@@ -6,15 +6,16 @@ import {AppContext} from "../context/CartContext";
 import Search from "../components/Search/Search";
 
 const Items = ({}) => {
-    const {items,loading} = useContext(AppContext)
+    const {items, loading, search, setSearch} = useContext(AppContext)
+    const filteredItems = items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
     return (
         <>
             <div className="title">
                 <h1>Все кроссовки</h1>
-                <Search/>
+                <Search text={search} onChange={setSearch}/>
             </div>
 
-            <Cards items={items} loading={loading}/>
+            <Cards items={filteredItems} loading={loading}/>
 
         </>
     );

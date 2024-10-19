@@ -11,6 +11,7 @@ function App() {
     const [cartItems, setCartItems] = useState([]);
     const [favorites, setFavorites] = useState([])
     const [orders, setOrders] = useState([])
+    const [search, setSearch] = useState("");
 
     const [fetchingAllData, loading, error] = useFetching(async () => {
         const responseCart = await Api.getAllFromCart()
@@ -56,7 +57,9 @@ function App() {
             favorites,
             addFavorite,
             deleteFavorite,
-            loading
+            loading,
+            search,
+            setSearch
         }}>
             <AppRoutes/>
         </AppContext.Provider>
