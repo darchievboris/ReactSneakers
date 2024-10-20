@@ -17,8 +17,11 @@ const Drawer = ({}) => {
         setToggleDrawer(prevState => !prevState)
     }
 
+    const extOverlay = toggleDrawer && cl.overlayVisible
+    const overlay = [cl.overlay,extOverlay].join(" ")
+
     return (
-        <div className={cl.overlay} style={!toggleDrawer ? {display: "none"} : {display: "flex"}} onClick={closeDrawer}>
+        <div className={overlay} onClick={closeDrawer}>
             <div className={cl.drawer} onClick={e => e.stopPropagation()}>
                 <h2>
                     Корзина

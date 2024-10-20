@@ -85,7 +85,22 @@
       "id": "207a"
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "id": "cf73",
+      "itemId": 11,
+      "title": "Кроссовки Puma X Aka Boku Future Rider",
+      "price": 8999,
+      "imageUrl": "/img/sneakers/2.jpg"
+    },
+    {
+      "id": "7a8c",
+      "itemId": 3,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 8499,
+      "imageUrl": "/img/sneakers/3.jpg"
+    }
+  ],
   "favorites": [
     {
       "id": "33be",
@@ -93,6 +108,34 @@
       "title": "Мужские Кроссовки Nike Air Max 270",
       "price": 15600,
       "imageUrl": "/img/sneakers/2.jpg"
+    },
+    {
+      "id": "c484",
+      "itemId": 1,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 12999,
+      "imageUrl": "/img/sneakers/1.jpg"
+    },
+    {
+      "id": "7865",
+      "itemId": 4,
+      "title": "Кроссовки Puma X Aka Boku Future Rider",
+      "price": 8999,
+      "imageUrl": "/img/sneakers/4.jpg"
+    },
+    {
+      "id": "fd15",
+      "itemId": 7,
+      "title": "Мужские Кроссовки Jordan Air Jordan 11",
+      "price": 10799,
+      "imageUrl": "/img/sneakers/7.jpg"
+    },
+    {
+      "id": "7a8c",
+      "itemId": 3,
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 8499,
+      "imageUrl": "/img/sneakers/3.jpg"
     }
   ],
   "orders": []
