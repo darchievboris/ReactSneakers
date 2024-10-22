@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import cl from './Card.module.scss'
-import {AppContext} from "../../context/CartContext";
+import {AppContext} from "../../context/AppContext";
 import MyButton from "../UI/Button/MyButton";
 
-const Card = ({item}) => {
+const Card = ({item, type}) => {
     const {
         cartItems,
         addItemToCart,
@@ -56,13 +56,15 @@ const Card = ({item}) => {
             setToggleFavorite(true)
         }
     }
+
+
     return (
         <div className={cl.card}>
-            <MyButton type="heart" onClick={onFavorite}>
+            {type === 'items' && <MyButton type="heart" onClick={onFavorite}>
                 {toggleFavorite
                     ? <img src="./img/heartLiked.svg" alt="liked"/>
                     : <img src="./img/heart.png" alt="to like"/>}
-            </MyButton>
+            </MyButton>}
 
             <img src={item.imageUrl} className={cl.itemImg} alt="sneakers"/>
             <h5>{item.title}</h5>
@@ -71,11 +73,11 @@ const Card = ({item}) => {
                     <span>Цена:</span>
                     <b>{item.price} руб.</b>
                 </div>
-                <MyButton type="add" onClick={onClickAddBtn}>
+                {type === 'items' && <MyButton type="add" onClick={onClickAddBtn}>
                     {toggleToAdd
                         ? <img src="./img/greenCheck.svg" alt="check"/>
                         : <img src="./img/plus.svg" alt="plus"/>}
-                </MyButton>
+                </MyButton>}
             </div>
         </div>
     );

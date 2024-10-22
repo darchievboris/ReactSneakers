@@ -31,4 +31,18 @@ export class Api {
         const response = await axios.delete(this.baseUrl+'favorites/'+id)
         return response
     }
+
+    static async getAllOrders(){
+        const response = await axios.get(this.baseUrl+'orders')
+        return response.data
+    }
+    static async addOrder(item){
+        const response = await axios.post(this.baseUrl+'orders',{...item})
+        return response.data
+    }
+    static async deleteOrder(id){
+        const response = await axios.delete(this.baseUrl+'orders/'+id)
+        // if(!response.ok){ return Promise.reject(`Что-то пошло не так. Обратитесь к разработчику`);}
+        return response
+    }
 }

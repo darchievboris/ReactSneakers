@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import cl from './Drawer.module.scss'
-import {AppContext} from "../../context/CartContext";
+import {AppContext} from "../../context/AppContext";
 import CartList from "../Cart/CartList";
 import CartTotal from "../Cart/CartTotal";
 import MyButton from "../UI/Button/MyButton";

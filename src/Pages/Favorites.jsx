@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {AppContext} from "../context/CartContext";
+import {AppContext} from "../context/AppContext";
 import Search from "../components/Search/Search";
 import Cards from "../components/Card/Cards";
 

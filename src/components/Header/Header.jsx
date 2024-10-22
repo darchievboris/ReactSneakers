@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import cl from './Header.module.scss'
 import {Link} from "react-router-dom";
-import {AppContext} from "../../context/CartContext";
+import {AppContext} from "../../context/AppContext";
 import {countTotalPriceFromArray} from "../../Utile/formatNumberToPrice";
 
 const Header = ({}) => {
@@ -37,7 +37,7 @@ const Header = ({}) => {
                 <Link to="orders">
                     <li>
                         <img src="./img/user.svg" alt="user"/>
-                        <span>Профиль</span>
+                        <span>Заказы</span>
                     </li>
                 </Link>
             </ul>
