@@ -2,7 +2,7 @@ import AppRoutes from "./RouterDom/AppRoutes";
 import {AppContext} from "./context/AppContext";
 import {useEffect, useState} from "react";
 import {useFetching} from "./hooks/useFetching";
-import {Api} from "./Utile/api";
+import {TEST_DATA} from "./TEST_DATA";
 
 function App() {
     const [toggleDrawer, setToggleDrawer] = useState(false);
@@ -12,62 +12,41 @@ function App() {
     const [favorites, setFavorites] = useState([])
     const [orders, setOrders] = useState([]);
 
-    const [fetchingAllData, loading, error] = useFetching(async () => {
-        const [
-            responseCart,
-            responseItems,
-            responseFavorites,
-            responseOrders] = await Promise.all(
-            [
-                Api.getAllFromCart(),
-                Api.getAllItems(),
-                Api.getAllFavorites(),
-                Api.getAllOrders()
-            ])
-
-        setCartItems(responseCart)
-        setItems(responseItems)
-        setFavorites(responseFavorites)
-        setOrders(responseOrders)
+    const [fetching, loading, error] = useFetching(async () => {
+        setItems(TEST_DATA)
     })
 
 
     useEffect(() => {
-        fetchingAllData()
+        fetching()
     }, []);
 
     //carts
     async function deleteItemFromCart(id) {
-        await Api.deleteItemFromCart(id)
         setCartItems(prevState => prevState.filter(item => item.id !== id))
     }
 
     async function addItemToCart(item) {
-        await Api.addItemToCart(item)
         setCartItems([...cartItems, item])
     }
 
     //favorites
     async function addFavorite(item) {
-        await Api.addItemToFavorites(item)
         setFavorites([...favorites, item])
     }
 
     async function deleteFavorite(id) {
-        await Api.deleteItemFromFavorites(id)
         setFavorites(favorites.filter(favorite => favorite.id !== id))
     }
 
     //orders
     async function addOrder() {
-        const newOrder = {orderId:new Date().getTime(),items:[...cartItems]}
-        const newOrderWhitId = await Api.addOrder(newOrder)
-        setOrders(prevState=>[...prevState, newOrderWhitId])
-        cartItems.map(item => deleteItemFromCart(item.id))
+        const newOrder = {id:new Date().getTime(),orderId:new Date().getTime(),items:[...cartItems]}
+        setOrders(prevState=>[...prevState, newOrder])
+        setCartItems([])
     }
 
     async function deleteOrder(id) {
-        await Api.deleteOrder(id)
         setOrders(orders.filter(item => item.id !== id ))
     }
 
