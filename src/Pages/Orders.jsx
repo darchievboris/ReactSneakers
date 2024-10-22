@@ -19,7 +19,7 @@ const Orders = ({}) => {
                         <h2>Заказа №{index + 1}</h2>
                         <div><strong>{convertMsToDate(order.orderId)}</strong></div>
                         <MyButton type="remove" onClick={() => deleteOrder(order.id)}>
-                            <img src="/img/btn-remove.svg" alt="remove"/>
+                            <img src="img/btn-remove.svg" alt="remove"/>
                         </MyButton>
                     </div>
                     <hr/>

@@ -62,8 +62,8 @@ const Card = ({item, type}) => {
         <div className={cl.card}>
             {type === 'items' && <MyButton type="heart" onClick={onFavorite}>
                 {toggleFavorite
-                    ? <img src="./img/heartLiked.svg" alt="liked"/>
-                    : <img src="./img/heart.png" alt="to like"/>}
+                    ? <img src="img/heartLiked.svg" alt="liked"/>
+                    : <img src="img/heart.png" alt="to like"/>}
             </MyButton>}
 
             <img src={item.imageUrl} className={cl.itemImg} alt="sneakers"/>
@@ -75,8 +75,8 @@ const Card = ({item, type}) => {
                 </div>
                 {type === 'items' && <MyButton type="add" onClick={onClickAddBtn}>
                     {toggleToAdd
-                        ? <img src="./img/greenCheck.svg" alt="check"/>
-                        : <img src="./img/plus.svg" alt="plus"/>}
+                        ? <img src="img/greenCheck.svg" alt="check"/>
+                        : <img src="img/plus.svg" alt="plus"/>}
                 </MyButton>}
             </div>
         </div>

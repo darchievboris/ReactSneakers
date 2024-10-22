@@ -11,7 +11,7 @@ const Header = ({}) => {
         <header>
             <div className={cl.headerLeft}>
                 <Link to="/">
-                    <img src="/img/logo.png" className={cl.logo}/>
+                    <img src="img/logo.png" className={cl.logo}/>
                     <div className="headerInfo">
                         <h3>React Sneakers</h3>
                         <p>Магазин луших кроссовок</p>
@@ -22,21 +22,21 @@ const Header = ({}) => {
             <ul className={cl.headerRight}>
                 <Link onClick={()=>setToggleDrawer(prevState=>!prevState)}>
                     <li>
-                        <img src="./img/cart.svg" alt="cart"/>
+                        <img src="img/cart.svg" alt="cart"/>
                         <span>{totalPrice}</span>
                     </li>
                 </Link>
 
                 <Link to="favorites">
                     <li>
-                        <img src="./img/heart.png" alt="favorites"/>
+                        <img src="img/heart.png" alt="favorites"/>
                         <span>Закладки</span>
                     </li>
                 </Link>
 
                 <Link to="orders">
                     <li>
-                        <img src="./img/user.svg" alt="user"/>
+                        <img src="img/user.svg" alt="user"/>
                         <span>Заказы</span>
                     </li>
                 </Link>

@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# React sneakers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
 
-## Available Scripts
+React-sneakers — интернет-магазин кроссовок. Этот проект я написал для того, чтобы закрепить свои знания по React и попрактиковаться с React-router-dom.
 
-In the project directory, you can run:
+## Функционал
 
-### `npm start`
+- вся информация о товарах (ссылки на фото, название, цена) подгружаются с сервера,
+- закладки, оформленные заказы, товары в корзине также сохраняются на сервере,
+- на сайте присутствует корзина, в которой можно увидеть итоговую сумму (цена товаров + налог 5%), из нее также можно удалять товары
+- покупка кроссовок,
+- при оформлении заказа (его номер сохраняется), корзина очищается и он добавляется в соответствующий раздел,
+- при удалении/добавлении товара в корзину обновляется соответствующая кнопка на карточке, общая сумма в корзине и в шапке сайта,
+- при удалении всех закладок появляется сообщение с рандомным эмодзи (1 из 10),
+- поиск товаров по названию.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Технологии
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React,
+- React Router,
+- React Skeleton,
+- React CSS Modules,
+- Препроцессор css
+- Хуки (useState, useEffect, useContext, useRef),
+- использование кастомных хуков,
+- работа с Json-Server,
+- контроль версий в Git.
 
-### `npm test`
+## Инструкция
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Чтобы запустить проект, нужно сделать несколько простых шагов.
 
-### `npm run build`
+- Создайте папку и перейдите в неё:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+cd <Имя-папки>
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Склонируйте этот репозиторий:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone https://github.com/darchievboris/ReactSneakers.git
+```
 
-### `npm run eject`
+- Установите все зависимости:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Теперь можете запустить проект:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm start 
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Системные требования
 
-## Learn More
+Для запуска потребуется Node.js версии 16.13.0.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Ссылка на GitHub Pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://darchievboris.github.io/ReactSneakers

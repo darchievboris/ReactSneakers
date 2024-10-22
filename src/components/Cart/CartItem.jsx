@@ -17,7 +17,7 @@ const CartItem = ({item, deleteItem}) => {
                 <b className={cl.price}>{price}</b>
             </div>
             <MyButton type="remove" style={{alignSelf: "flex-end"}} onClick={onClickDeleteBtn}>
-                <img src="/img/btn-remove.svg" alt="remove"/>
+                <img src="img/btn-remove.svg" alt="remove"/>
             </MyButton>
         </div>
     );

@@ -5,7 +5,7 @@ const Search = ({text, onChange}) => {
     return (
         <>
             <div className={cl.search}>
-                <img src="/img/search.svg" alt="Search"/>
+                <img src="img/search.svg" alt="Search"/>
                 <MyInput placeholder="Поиск..." value={text} onChange={(e)=>onChange(e.target.value)}/>
             </div>
         </>

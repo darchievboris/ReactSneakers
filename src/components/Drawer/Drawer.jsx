@@ -26,7 +26,7 @@ const Drawer = ({}) => {
                 <h2>
                     Корзина
                     <MyButton type="remove" onClick={closeDrawer}>
-                        <img src="/img/btn-remove.svg" alt="remove"/>
+                        <img src="img/btn-remove.svg" alt="remove"/>
                     </MyButton>
                 </h2>
                 <CartList items={cartItems} deleteItem={deleteItemFromCart}/>
