@@ -5,8 +5,6 @@ import {useFetching} from "./hooks/useFetching";
 import {TEST_DATA} from "./TEST_DATA";
 
 function App() {
-    const [toggleDrawer, setToggleDrawer] = useState(false);
-
     const [items, setItems] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [favorites, setFavorites] = useState([])
@@ -54,8 +52,6 @@ function App() {
         <AppContext.Provider value={{
             items,
             cartItems,
-            toggleDrawer,
-            setToggleDrawer,
             deleteItemFromCart,
             addItemToCart,
             favorites,

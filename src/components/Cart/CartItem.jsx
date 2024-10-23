@@ -16,9 +16,7 @@ const CartItem = ({item, deleteItem}) => {
                 <p className={cl.desc}>{item.title}</p>
                 <b className={cl.price}>{price}</b>
             </div>
-            <MyButton type="remove" style={{alignSelf: "flex-end"}} onClick={onClickDeleteBtn}>
-                <img src="img/btn-remove.svg" alt="remove"/>
-            </MyButton>
+            <MyButton type="remove" style={{alignSelf: "flex-end"}} onClick={onClickDeleteBtn}/>
         </div>
     );
 };

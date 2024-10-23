@@ -9,7 +9,7 @@ import NoPages from "../Pages/NoPages";
 const AppRoutes = ({}) => {
     return (
         <Routes>
-            <Route path="/" element={<Layout/>}>
+            <Route path="" element={<Layout/>}>
                 <Route index element={<Items/>}/>
                 <Route path="favorites" element={<Favorites/>}/>
                 <Route path="orders" element={<Orders/>}/>

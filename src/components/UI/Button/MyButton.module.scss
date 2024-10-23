@@ -1,10 +1,15 @@
-.common{
+.common {
   border: none;
   cursor: pointer;
   background: #FFFFFF;
   width: 32px;
   height: 32px;
   border-radius: 18px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .green {
@@ -26,16 +31,6 @@
   }
 }
 
-.remove {
-  opacity: 0.5;
-  transition: opacity 0.2s ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
-}
-
 .heart {
   position: absolute;
-}
-.add {
 }

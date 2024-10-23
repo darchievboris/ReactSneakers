@@ -57,14 +57,12 @@ const Card = ({item, type}) => {
         }
     }
 
-
+    const typeForLike = toggleFavorite ? "heartLiked" : "heart"
+    const typeForAddBtn = toggleToAdd ?  <img src="img/greenCheck.svg" alt="check"/>
+        : <img src="img/plus.svg" alt="plus"/>
     return (
         <div className={cl.card}>
-            {type === 'items' && <MyButton type="heart" onClick={onFavorite}>
-                {toggleFavorite
-                    ? <img src="img/heartLiked.svg" alt="liked"/>
-                    : <img src="img/heart.png" alt="to like"/>}
-            </MyButton>}
+            {type === 'items' && <MyButton type={typeForLike} onClick={onFavorite}/>}
 
             <img src={item.imageUrl} className={cl.itemImg} alt="sneakers"/>
             <h5>{item.title}</h5>

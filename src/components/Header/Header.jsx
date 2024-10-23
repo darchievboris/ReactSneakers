@@ -3,10 +3,14 @@ import cl from './Header.module.scss'
 import {Link} from "react-router-dom";
 import {AppContext} from "../../context/AppContext";
 import {countTotalPriceFromArray} from "../../Utile/formatNumberToPrice";
+import Drawer from "../UI/Drawer/Drawer";
+import Cart from "../Cart";
 
 const Header = ({}) => {
-    const {setToggleDrawer,cartItems}=useContext(AppContext)
+    const [toggleDrawer,setToggleDrawer] = useState(false)
+    const {cartItems}=useContext(AppContext)
     const [totalPrice]= countTotalPriceFromArray(cartItems)
+
     return (
         <header>
             <div className={cl.headerLeft}>
@@ -41,6 +45,9 @@ const Header = ({}) => {
                     </li>
                 </Link>
             </ul>
+            <Drawer toggleDrawer={toggleDrawer} setToggleDrawer={setToggleDrawer}>
+                <Cart/>
+            </Drawer>
         </header>
     );
 };
